@@ -11,7 +11,7 @@ import Foundation
 // MARK: - 스트링 로컬라이제이션 적용
 
 extension String {
-  func localize() -> String {
+  public func localize() -> String {
     return NSLocalizedString(self, comment: self)
   }
 }
@@ -19,7 +19,7 @@ extension String {
 // MARK: - 날짜 스트링 포멧 바꾸기
 
 extension String {
-  func changeDateFormat(input: String, output: String) -> String {
+  public func changeDateFormat(input: String, output: String) -> String {
     let inputFormatter = DateFormatter()
     inputFormatter.dateFormat = input
     
@@ -36,7 +36,7 @@ extension String {
 // MARK: - 스트링 사이즈
 
 extension String {
-  func rect(font: UIFont) -> CGSize {
+  public func rect(font: UIFont) -> CGSize {
     let size = CGSize(width: CGFloat.greatestFiniteMagnitude,
                       height: CGFloat.greatestFiniteMagnitude)
     
@@ -50,7 +50,7 @@ extension String {
     return snap(rect)
   }
   
-  func width(font: UIFont) -> CGFloat {
+  public func width(font: UIFont) -> CGFloat {
     let size = CGSize(width: CGFloat.greatestFiniteMagnitude,
                       height: CGFloat.greatestFiniteMagnitude)
     
@@ -64,7 +64,7 @@ extension String {
     return snap(width)
   }
   
-  func height(fitWidth width: CGFloat, font: UIFont) -> CGFloat {
+  public func height(fitWidth width: CGFloat, font: UIFont) -> CGFloat {
     let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
     let attributes = [NSFontAttributeName: font]
@@ -90,7 +90,7 @@ extension String {
     return attrString
   }
   
-  func rectAttr(font: UIFont, iSpacingValue: CGFloat = 0) -> CGSize {
+  public func rectAttr(font: UIFont, iSpacingValue: CGFloat = 0) -> CGSize {
     let size = CGSize(width: CGFloat.greatestFiniteMagnitude,
                       height: CGFloat.greatestFiniteMagnitude)
     
@@ -103,7 +103,7 @@ extension String {
     return snap(rect)
   }
   
-  func widthAttr(font: UIFont, iSpacingValue: CGFloat = 0) -> CGFloat {
+  public func widthAttr(font: UIFont, iSpacingValue: CGFloat = 0) -> CGFloat {
     let size = CGSize(width: CGFloat.greatestFiniteMagnitude,
                       height: CGFloat.greatestFiniteMagnitude)
     
@@ -116,7 +116,7 @@ extension String {
     return snap(width)
   }
   
-  func heightAttr(fitWidth width: CGFloat, font: UIFont, iSpacingValue: CGFloat = 0) -> CGFloat {
+  public func heightAttr(fitWidth width: CGFloat, font: UIFont, iSpacingValue: CGFloat = 0) -> CGFloat {
     let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
     let attrString = makeAttrStringForSize(font: font, iSpacingValue: iSpacingValue)
@@ -132,7 +132,7 @@ extension String {
 // MARK: - 속성스트링 라인 간격
 
 extension String {
-  func getLineSpacingString(_ iSpacingValue: CGFloat,
+  public func getLineSpacingString(_ iSpacingValue: CGFloat,
                             alignment: NSTextAlignment = .left) -> NSMutableAttributedString {
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = iSpacingValue

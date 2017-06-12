@@ -12,6 +12,11 @@
 		102251FA1EEE1ADE00DA9184 /* MGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 102251EC1EEE1ADE00DA9184 /* MGUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		102252041EEE1C8300DA9184 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102252031EEE1C8300DA9184 /* String+extension.swift */; };
 		102252061EEE1D3A00DA9184 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102252051EEE1D3A00DA9184 /* MathUtils.swift */; };
+		1092A1891EEE284B003DA615 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092A1881EEE284B003DA615 /* UIColor+extension.swift */; };
+		1092A18B1EEE2896003DA615 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092A18A1EEE2896003DA615 /* UIImage+extension.swift */; };
+		1092A18F1EEE28ED003DA615 /* UILabel+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092A18E1EEE28ED003DA615 /* UILabel+extension.swift */; };
+		1092A1911EEE2974003DA615 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092A1901EEE2974003DA615 /* Date+extension.swift */; };
+		1092A1931EEE29C9003DA615 /* CGFloat+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092A1921EEE29C9003DA615 /* CGFloat+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +38,11 @@
 		102251F91EEE1ADE00DA9184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		102252031EEE1C8300DA9184 /* String+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+extension.swift"; path = "Sources/String+extension.swift"; sourceTree = SOURCE_ROOT; };
 		102252051EEE1D3A00DA9184 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathUtils.swift; path = Sources/MathUtils.swift; sourceTree = SOURCE_ROOT; };
+		1092A1881EEE284B003DA615 /* UIColor+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+extension.swift"; path = "Sources/UIColor+extension.swift"; sourceTree = SOURCE_ROOT; };
+		1092A18A1EEE2896003DA615 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+extension.swift"; path = "Sources/UIImage+extension.swift"; sourceTree = SOURCE_ROOT; };
+		1092A18E1EEE28ED003DA615 /* UILabel+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UILabel+extension.swift"; path = "Sources/UILabel+extension.swift"; sourceTree = SOURCE_ROOT; };
+		1092A1901EEE2974003DA615 /* Date+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+extension.swift"; path = "Sources/Date+extension.swift"; sourceTree = SOURCE_ROOT; };
+		1092A1921EEE29C9003DA615 /* CGFloat+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CGFloat+extension.swift"; path = "Sources/CGFloat+extension.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,11 @@
 				102251EC1EEE1ADE00DA9184 /* MGUtils.h */,
 				102251ED1EEE1ADE00DA9184 /* Info.plist */,
 				102252031EEE1C8300DA9184 /* String+extension.swift */,
+				1092A1881EEE284B003DA615 /* UIColor+extension.swift */,
+				1092A18A1EEE2896003DA615 /* UIImage+extension.swift */,
+				1092A1901EEE2974003DA615 /* Date+extension.swift */,
+				1092A18E1EEE28ED003DA615 /* UILabel+extension.swift */,
+				1092A1921EEE29C9003DA615 /* CGFloat+extension.swift */,
 				102252051EEE1D3A00DA9184 /* MathUtils.swift */,
 			);
 			path = MGUtils;
@@ -203,8 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1092A1891EEE284B003DA615 /* UIColor+extension.swift in Sources */,
+				1092A1931EEE29C9003DA615 /* CGFloat+extension.swift in Sources */,
+				1092A1911EEE2974003DA615 /* Date+extension.swift in Sources */,
 				102252041EEE1C8300DA9184 /* String+extension.swift in Sources */,
+				1092A18F1EEE28ED003DA615 /* UILabel+extension.swift in Sources */,
 				102252061EEE1D3A00DA9184 /* MathUtils.swift in Sources */,
+				1092A18B1EEE2896003DA615 /* UIImage+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +430,7 @@
 				102251FF1EEE1ADE00DA9184 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		102252001EEE1ADE00DA9184 /* Build configuration list for PBXNativeTarget "MGUtilsTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +439,7 @@
 				102252021EEE1ADE00DA9184 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
