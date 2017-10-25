@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author           = { 'magi82' => 'bkhwang82@gmail.com' }
   s.source           = { :git => 'https://github.com/magi82/MGUtils.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
-  s.source_files = 'Sources/**/*.{swift,h,m}'
+  s.source_files = 'Sources/*.swift'
   s.dependency 'RxSwift', '>= 4.0.0'
 end
