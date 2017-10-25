@@ -10,24 +10,24 @@ import UIKit
 
 import RxSwift
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
   
   // MARK: Properties
   
   lazy private(set) var className: String = {
     return type(of: self).description().components(separatedBy: ".").last ?? ""
   }()
-  var disposeBag = DisposeBag()
+  public var disposeBag = DisposeBag()
   private(set) var didSetupConstraints = false
   private(set) var didSetupSubViews = false
   
   // MARK: Initializing
   
-  init() {
+  public init() {
     super.init(nibName: nil, bundle: nil)
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  public required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
@@ -35,27 +35,27 @@ class BaseViewController: UIViewController {
     Log("DEINIT: \(self.className)")
   }
   
-  override func loadView() {
+  open override func loadView() {
     super.loadView()
     
-#if false
-    self.rx.methodInvoked(#selector(UIViewController.viewDidLoad))
-      .subscribe(onNext: { [weak self] _ in
-        // 상태 구독을 먼저 하고나서 액션을 해야 한다.
-        self?.state()
-        self?.action()
-      })
-      .disposed(by: self.disposeBag)
-#endif
+    #if false
+      self.rx.methodInvoked(#selector(UIViewController.viewDidLoad))
+        .subscribe(onNext: { [weak self] _ in
+          // 상태 구독을 먼저 하고나서 액션을 해야 한다.
+          self?.state()
+          self?.action()
+        })
+        .disposed(by: self.disposeBag)
+    #endif
   }
   
-  override func viewDidLoad() {
+  open override func viewDidLoad() {
     super.viewDidLoad()
     
     self.view.setNeedsUpdateConstraints()
   }
   
-  override func updateViewConstraints() {
+  open override func updateViewConstraints() {
     if self.didSetupConstraints == false {
       self.setupConstraints()
       self.didSetupConstraints = true
@@ -63,9 +63,9 @@ class BaseViewController: UIViewController {
     super.updateViewConstraints()
   }
   
-  func setupConstraints() {}
+  open func setupConstraints() {}
   
-  override func viewDidLayoutSubviews() {
+  open override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     if self.didSetupSubViews == false {
       self.setupSubViews()
@@ -73,30 +73,30 @@ class BaseViewController: UIViewController {
     }
   }
   
-  func setupSubViews() {}
+  open func setupSubViews() {}
 }
 
 // MARK: - mvvm method
 #if false
-extension BaseViewController {
-  func action() {
-    fatalError("action method has not been implemented => [\(self.className)]")
+  extension BaseViewController {
+    open func action() {
+      fatalError("action method has not been implemented => [\(self.className)]")
+    }
+    
+    open func state() {
+      fatalError("state method has not been implemented => [\(self.className)]")
+    }
   }
-  
-  func state() {
-    fatalError("state method has not been implemented => [\(self.className)]")
-  }
-}
 #endif
 
 // MARK: - Orientation
 
 extension BaseViewController {
-  override var shouldAutorotate: Bool {
+  open override var shouldAutorotate: Bool {
     return false
   }
   
-  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+  open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
     return .portrait
   }
 }

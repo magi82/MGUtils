@@ -9,24 +9,24 @@
 import UIKit
 
 /// Ceil to snap pixel
-func snap(_ x: CGFloat) -> CGFloat {
+public func snap(_ x: CGFloat) -> CGFloat {
   let scale = UIScreen.main.scale
   return ceil(x * scale) / scale
 }
 
-func snap(_ point: CGPoint) -> CGPoint {
+public func snap(_ point: CGPoint) -> CGPoint {
   return CGPoint(x: snap(point.x), y: snap(point.y))
 }
 
-func snap(_ size: CGSize) -> CGSize {
+public func snap(_ size: CGSize) -> CGSize {
   return CGSize(width: snap(size.width), height: snap(size.height))
 }
 
-func snap(_ rect: CGRect) -> CGRect {
+public func snap(_ rect: CGRect) -> CGRect {
   return CGRect(origin: snap(rect.origin), size: snap(rect.size))
 }
 
-enum DecimalDigitType {
+public enum DecimalDigitType {
   case ceil(Int)
   case floor(Int)
   case round(Int)
@@ -38,9 +38,9 @@ protocol DecimalDigitCalculatable {
 }
 
 extension Double: DecimalDigitCalculatable {
-  typealias ReturnType = Double
+  public typealias ReturnType = Double
   
-  func decimalDigit(type: DecimalDigitType) -> ReturnType {
+  public func decimalDigit(type: DecimalDigitType) -> ReturnType {
     switch type {
     case let .ceil(digit):
       let divisor = pow(10.0, ReturnType(digit))
@@ -49,7 +49,7 @@ extension Double: DecimalDigitCalculatable {
     case let .floor(digit):
       let divisor = pow(10.0, ReturnType(digit))
       return Darwin.floor(self * divisor) / divisor
-
+      
       
     case let .round(digit):
       let divisor = pow(10.0, ReturnType(digit))
@@ -59,9 +59,9 @@ extension Double: DecimalDigitCalculatable {
 }
 
 extension Float: DecimalDigitCalculatable {
-  typealias ReturnType = Float
+  public typealias ReturnType = Float
   
-  func decimalDigit(type: DecimalDigitType) -> ReturnType {
+  public func decimalDigit(type: DecimalDigitType) -> ReturnType {
     switch type {
     case let .ceil(digit):
       let divisor = pow(10.0, ReturnType(digit))
@@ -78,3 +78,4 @@ extension Float: DecimalDigitCalculatable {
     }
   }
 }
+

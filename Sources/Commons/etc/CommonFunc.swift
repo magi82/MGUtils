@@ -10,7 +10,7 @@ import Foundation
 
 import ObjectMapper
 
-func ynTransform() -> TransformOf<Bool, String> {
+public func ynTransform() -> TransformOf<Bool, String> {
   return TransformOf(fromJSON: { value -> Bool? in
     return value == "Y"
   }, toJSON: { value -> String? in
@@ -18,7 +18,7 @@ func ynTransform() -> TransformOf<Bool, String> {
   })
 }
 
-func Log(_ log: Any) {
+public func Log(_ log: Any) {
 #if DEBUG
   print(log)
 #endif

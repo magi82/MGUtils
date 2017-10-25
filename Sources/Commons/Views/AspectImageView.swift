@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class AspectImageView: UIImageView {
+public class AspectImageView: UIImageView {
 
-  override var intrinsicContentSize: CGSize {
+  public override var intrinsicContentSize: CGSize {
     if let image = self.image {
       return CGSize(width: UIScreen.main.bounds.width,
                     height: UIScreen.main.bounds.width / image.size.width * image.size.height)

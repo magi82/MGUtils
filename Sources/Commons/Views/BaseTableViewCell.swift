@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+open class BaseTableViewCell: UITableViewCell {
   
-  func configure() {
+  open func configure() {
     self.setNeedsLayout()
   }
 }

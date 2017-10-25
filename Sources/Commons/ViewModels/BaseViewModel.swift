@@ -11,10 +11,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class BaseViewModel<T> {
+open class BaseViewModel<T> {
   private(set) var state: PublishSubject<T> = PublishSubject<T>()
   
-  func stateChanged(_ value: T) {
+  public func stateChanged(_ value: T) {
     self.state.onNext(value)
   }
 }

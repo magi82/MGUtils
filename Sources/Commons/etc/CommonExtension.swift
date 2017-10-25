@@ -25,7 +25,7 @@ extension UIStoryboard {
 // MARK: - UIAlertController
 
 extension UIAlertController {
-  static func make(title: String? = nil,
+  public static func make(title: String? = nil,
                    message: String? = nil,
                    style: UIAlertControllerStyle,
                    ok: String? = nil,
@@ -47,7 +47,7 @@ extension UIAlertController {
     return alert
   }
   
-  func alertShow(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+  public func alertShow(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
     viewController.present(self, animated: animated, completion: completion)
   }
 }
@@ -56,12 +56,12 @@ extension UIAlertController {
 
 extension UIActivityIndicatorView {
   
-  convenience init(activityIndicatorStyle style: UIActivityIndicatorViewStyle, scale: CGFloat) {
+  public convenience init(activityIndicatorStyle style: UIActivityIndicatorViewStyle, scale: CGFloat) {
     self.init(activityIndicatorStyle: style)
     self.scale(scale)
   }
   
-  func scale(_ value: CGFloat) {
+  public func scale(_ value: CGFloat) {
     self.transform = CGAffineTransform(scaleX: value, y: value)
   }
 }
@@ -69,7 +69,7 @@ extension UIActivityIndicatorView {
 // MARK: - UIBarButtonItem
 
 extension UIBarButtonItem {
-  convenience init(image: UIImage?, style: UIBarButtonItemStyle) {
+  public convenience init(image: UIImage?, style: UIBarButtonItemStyle) {
     self.init(image: image, style: style, target: nil, action: nil)
   }
 }
@@ -77,11 +77,11 @@ extension UIBarButtonItem {
 // MARK: - UISearchBar {
 
 extension UISearchBar {
-  var textField: UITextField? {
+  public var textField: UITextField? {
     return self.value(forKey: "searchField") as? UITextField
   }
   
-  var textColor: UIColor {
+  public var textColor: UIColor {
     set {
       self.textField?.textColor = newValue
     }
@@ -95,7 +95,7 @@ extension UISearchBar {
 // MARK: - 스트링 로컬라이제이션 적용
 
 extension String {
-  var localize: String {
+  public var localize: String {
     return NSLocalizedString(self, comment: self)
   }
 }
@@ -103,7 +103,7 @@ extension String {
 // MARK: - Dictionary
 
 extension Dictionary {
-  mutating func merge(dict: [Key: Value]) {
+  public mutating func merge(dict: [Key: Value]) {
     for (key, value) in dict {
       updateValue(value, forKey: key)
     }
@@ -113,7 +113,7 @@ extension Dictionary {
 // MARK: - UIColor 를 Hex String 변환
 
 extension UIColor {
-  convenience init(hex: String) {
+  public convenience init(hex: String) {
     let hexStr:NSString = hex.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).uppercased() as NSString
     let scan = Scanner(string: hexStr as String)
     
@@ -136,7 +136,7 @@ extension UIColor {
     self.init(red:red, green:green, blue:blue, alpha:1)
   }
   
-  func toHexStr() -> String {
+  public func toHexStr() -> String {
     var r:CGFloat = 0
     var g:CGFloat = 0
     var b:CGFloat = 0
@@ -149,7 +149,7 @@ extension UIColor {
     return NSString(format:"#%06x", rgb) as String
   }
   
-  convenience init(r: Int, g: Int, b: Int, a: Int? = nil) {
+  public convenience init(r: Int, g: Int, b: Int, a: Int? = nil) {
     self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a ?? 1))
   }
 }
@@ -160,7 +160,7 @@ extension UIImage {
   
   // MARK: UIColor로 UIImage 생성
   
-  class func imageWithColor(color: UIColor, size: CGSize) -> UIImage? {
+  public static func imageWithColor(color: UIColor, size: CGSize) -> UIImage? {
     let rect: CGRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
     color.setFill()
@@ -178,7 +178,7 @@ extension UIImage {
   
   // MARK: 이미지를 원으로
   
-  var circle: UIImage? {
+  public var circle: UIImage? {
     let square = CGSize(width: min(size.width, size.height), height: min(size.width, size.height))
     let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
     imageView.contentMode = .scaleAspectFill
@@ -197,7 +197,7 @@ extension UIImage {
 // MARK: - Label 크기에 따른 폰트 크기 자동 변경
 
 extension UILabel {
-  func autoResizeCalculator(lines: Int, minScale: CGFloat, align: NSTextAlignment) {
+  public func autoResizeCalculator(lines: Int, minScale: CGFloat, align: NSTextAlignment) {
     self.adjustsFontSizeToFitWidth = true
     self.numberOfLines = lines
     self.minimumScaleFactor = minScale
@@ -208,7 +208,7 @@ extension UILabel {
 // MARK: - D-Day
 
 extension Date {
-  func dateConversionDay(_ dateString: String) -> Int? {
+  public func dateConversionDay(_ dateString: String) -> Int? {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     guard let serverDate = formatter.date(from: dateString) else { return nil }
@@ -219,7 +219,7 @@ extension Date {
     return components.day
   }
   
-  static var currentMonth: Int {
+  public static var currentMonth: Int {
     // 값이 nil 이면 1월 리턴
     let components = Calendar.current.dateComponents([.month], from: Date())
     return components.month ?? 1
@@ -229,7 +229,7 @@ extension Date {
 // MARK: - 스트링 사이즈
 
 extension String {
-  func Rect(font: UIFont) -> CGSize {
+  public func Rect(font: UIFont) -> CGSize {
     let size = CGSize(width: CGFloat.greatestFiniteMagnitude,
                       height: CGFloat.greatestFiniteMagnitude)
     
@@ -243,7 +243,7 @@ extension String {
     return snap(rect)
   }
   
-  func width(font: UIFont) -> CGFloat {
+  public func width(font: UIFont) -> CGFloat {
     let size = CGSize(width: CGFloat.greatestFiniteMagnitude,
                       height: CGFloat.greatestFiniteMagnitude)
     
@@ -257,7 +257,7 @@ extension String {
     return snap(width)
   }
   
-  func height(fitWidth width: CGFloat, font: UIFont) -> CGFloat {
+  public func height(fitWidth width: CGFloat, font: UIFont) -> CGFloat {
     let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
     let attributes = [NSAttributedStringKey.font: font]
@@ -272,11 +272,11 @@ extension String {
 }
 
 extension CGFloat {
-  func DegToRad() -> CGFloat {
+  public func DegToRad() -> CGFloat {
     return  self * .pi / 180
   }
   
-  func RadToDeg() -> CGFloat {
+  public func RadToDeg() -> CGFloat {
     return self * 180 / .pi
   }
 }

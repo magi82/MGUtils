@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum StringAsset: CustomStringConvertible {
+public enum StringAsset: CustomStringConvertible {
   case loginSuccess
 }
 
 extension StringAsset {
-  var description: String {
+  public var description: String {
     switch self {
     case .loginSuccess:
       return "로그인 성공"

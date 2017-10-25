@@ -8,16 +8,16 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+open class BaseNavigationController: UINavigationController {
   
-  override func viewDidLoad() {
+  open override func viewDidLoad() {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
     configure()
   }
   
-  func configure() {
+  open func configure() {
     // 네비게이션바 컬러
     navigationBar.barTintColor = nil
     navigationBar.isTranslucent = false

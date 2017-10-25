@@ -8,16 +8,16 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
+open class BaseTabBarController: UITabBarController {
   
-  override func viewDidLoad() {
+  open override func viewDidLoad() {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
     configure()
   }
   
-  func configure() {
+  open func configure() {
     // 탭바 투명도와 컬러
     tabBar.isTranslucent = false
     tabBar.barTintColor = UIColor(r: 239, g: 238, b: 238)

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
+open class BaseCollectionViewCell: UICollectionViewCell {
   
-  func configure() {
+  open func configure() {
     self.setNeedsLayout()
   }
 }
