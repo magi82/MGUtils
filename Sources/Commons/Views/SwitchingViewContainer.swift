@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol Switchable {
+public protocol Switchable {
   func swtiched(_ view: UIView?)
 }
 
 public class SwitchingViewContainer: NSObject {
   var views: [UIView]
-  var delegate: Switchable? = nil
+  public var delegate: Switchable? = nil
   var index: Int
   
   public init(_ views: [UIView]) {

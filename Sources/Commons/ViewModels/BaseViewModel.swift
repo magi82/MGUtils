@@ -19,7 +19,7 @@ open class BaseViewModel<T> {
   }
 }
 
-protocol ViewBindable {
+public protocol ViewBindable {
   associatedtype Command
   associatedtype Action
   associatedtype State

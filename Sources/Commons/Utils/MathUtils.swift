@@ -32,7 +32,7 @@ public enum DecimalDigitType {
   case round(Int)
 }
 
-protocol DecimalDigitCalculatable {
+public protocol DecimalDigitCalculatable {
   associatedtype ReturnType
   func decimalDigit(type: DecimalDigitType) -> ReturnType
 }
