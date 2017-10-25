@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MGUtils'
-  s.version          = '0.1.2'
+  s.version          = '0.1.1'
   s.summary          = 'MGUtils'
   s.homepage         = 'https://github.com/magi82/MGUtils'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
