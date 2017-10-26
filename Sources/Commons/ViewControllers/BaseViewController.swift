@@ -43,7 +43,7 @@ open class BaseViewController: UIViewController {
         .subscribe(onNext: { [weak self] _ in
           // 상태 구독을 먼저 하고나서 액션을 해야 한다.
           self?.state()
-          self?.action()
+          self?.command()
         })
         .disposed(by: self.disposeBag)
     #endif
@@ -79,8 +79,8 @@ open class BaseViewController: UIViewController {
 // MARK: - mvvm method
 #if true
   extension BaseViewController {
-    open func action() {
-      fatalError("action method has not been implemented => [\(self.className)]")
+    open func command() {
+      fatalError("command method has not been implemented => [\(self.className)]")
     }
     
     open func state() {
