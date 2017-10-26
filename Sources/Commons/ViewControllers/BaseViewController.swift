@@ -38,7 +38,7 @@ open class BaseViewController: UIViewController {
   open override func loadView() {
     super.loadView()
     
-    #if false
+    #if true
       self.rx.methodInvoked(#selector(UIViewController.viewDidLoad))
         .subscribe(onNext: { [weak self] _ in
           // 상태 구독을 먼저 하고나서 액션을 해야 한다.
@@ -77,7 +77,7 @@ open class BaseViewController: UIViewController {
 }
 
 // MARK: - mvvm method
-#if false
+#if true
   extension BaseViewController {
     open func action() {
       fatalError("action method has not been implemented => [\(self.className)]")
