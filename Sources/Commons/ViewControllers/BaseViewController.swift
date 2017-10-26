@@ -78,6 +78,7 @@ open class BaseViewController: UIViewController {
 
 // MARK: - mvvm method
 #if true
+  @objc
   extension BaseViewController {
     open func command() {
       fatalError("command method has not been implemented => [\(self.className)]")
