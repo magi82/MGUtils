@@ -192,6 +192,18 @@ extension UIImage {
     UIGraphicsEndImageContext()
     return result
   }
+  
+  // MARK: 이미지 틴트컬러 수정
+  
+  func imageWithTintColor(color: UIColor) -> UIImage? {
+    let image = self.withRenderingMode(.alwaysTemplate)
+    UIGraphicsBeginImageContextWithOptions(size, false, scale)
+    color.set()
+    image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+    let result = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return result
+  }
 }
 
 // MARK: - Label 크기에 따른 폰트 크기 자동 변경
