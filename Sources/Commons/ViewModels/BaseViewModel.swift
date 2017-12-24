@@ -11,14 +11,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-open class BaseViewModel<T> {
-  private(set) var state: PublishSubject<T> = PublishSubject<T>()
-  
-  public func stateChanged(_ value: T) {
-    self.state.onNext(value)
-  }
-}
-
 public protocol ViewBindable {
   associatedtype Command
   associatedtype Action
