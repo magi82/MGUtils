@@ -23,3 +23,17 @@ public func Log(_ log: Any) {
   print(log)
 #endif
 }
+
+public func isiPhoneXScreen() -> Bool {
+  guard #available(iOS 11.0, *) else { return false }
+  return UIApplication.shared.windows[0].safeAreaInsets != UIEdgeInsets.zero
+}
+
+public func openURL(url: URL) {
+  if #available(iOS 10.0, *) {
+    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+  }
+  else {
+    UIApplication.shared.openURL(url)
+  }
+}

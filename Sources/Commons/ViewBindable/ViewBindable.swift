@@ -1,5 +1,5 @@
 //
-//  BaseViewModel.swift
+//  ViewBindable.swift
 //  Common
 //
 //  Created by Byung Kook Hwang on 2017. 8. 22..

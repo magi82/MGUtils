@@ -41,9 +41,11 @@ public class LocationUtils: NSObject, CLLocationManagerDelegate {
   }
   
   public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-    self.coordinate!(coord)
-    manager.stopUpdatingLocation()
+    if onceCoord == nil {
+      let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+      self.coordinate!(coord)
+      manager.stopUpdatingLocation()
+    }
   }
   
   public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

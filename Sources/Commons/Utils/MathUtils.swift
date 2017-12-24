@@ -78,4 +78,3 @@ extension Float: DecimalDigitCalculatable {
     }
   }
 }
-

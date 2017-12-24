@@ -98,6 +98,14 @@ extension String {
   public var localize: String {
     return NSLocalizedString(self, comment: self)
   }
+  
+  public func foregroundColorOfKeyword(keyword: String, color: UIColor) -> NSMutableAttributedString {
+    let attrValue: NSMutableAttributedString = NSMutableAttributedString(string: self)
+    attrValue.addAttributes([.foregroundColor: color],
+                            range: NSString(string: self).range(of: keyword))
+    
+    return attrValue
+  }
 }
 
 // MARK: - Dictionary
@@ -236,6 +244,12 @@ extension Date {
     let components = Calendar.current.dateComponents([.month], from: Date())
     return components.month ?? 1
   }
+  
+  public static var currentDateString: String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyMMdd"
+    return formatter.string(from: Date())
+  }
 }
 
 // MARK: - 스트링 사이즈
@@ -326,5 +340,40 @@ extension UINavigationController {
       return vc.supportedInterfaceOrientations
     }
     return .portrait
+  }
+}
+
+// MARK: - UICollectionView
+
+extension UICollectionView {
+  public var emptyView: UIView? {
+    get { return self.backgroundView }
+    set {
+      self.backgroundView = newValue
+      self.backgroundView?.isHidden = true
+    }
+  }
+}
+
+// MARk: - Int
+
+extension Int {
+  public var numberTypeDecimal: String {
+    get {
+      let numberFormatter = NumberFormatter()
+      numberFormatter.numberStyle = NumberFormatter.Style.decimal
+      return numberFormatter.string(from: NSNumber(value: self))!
+    }
+  }
+}
+
+// MARK: - 스트링 멀티라인 간격
+
+extension String {
+  public func lineSpacing(spacing: CGFloat) -> NSAttributedString {
+    let style = NSMutableParagraphStyle()
+    style.lineSpacing = spacing
+    let attributes = [NSAttributedStringKey.paragraphStyle: style]
+    return NSAttributedString(string: self, attributes: attributes)
   }
 }
