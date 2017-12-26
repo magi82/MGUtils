@@ -25,14 +25,14 @@ extension UIStoryboard {
 // MARK: - UIAlertController
 
 extension UIAlertController {
-  public static func make(title: String? = nil,
+  static func make(title: String? = nil,
                    message: String? = nil,
                    style: UIAlertControllerStyle,
                    ok: String? = nil,
                    okClosure: ((UIAlertAction) -> Void)? = nil,
                    cancel: String? = nil,
-                   cancelClosure: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
-    
+                   cancelClosure: ((UIAlertAction) -> Void)? = nil,
+                   sheet: UIAlertAction...) -> UIAlertController {
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: style)
     
@@ -44,10 +44,14 @@ extension UIAlertController {
       alert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: cancelClosure))
     }
     
+    for value in sheet {
+      alert.addAction(value)
+    }
+    
     return alert
   }
   
-  public func alertShow(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+  func alertShow(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
     viewController.present(self, animated: animated, completion: completion)
   }
 }
