@@ -24,6 +24,7 @@
 		105E92EE1FA076F5003E75E8 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E92E01FA076F4003E75E8 /* BaseCollectionViewCell.swift */; };
 		105E92EF1FA076F5003E75E8 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E92E11FA076F4003E75E8 /* BaseTableViewCell.swift */; };
 		105E92F01FA076F5003E75E8 /* SwitchingViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E92E21FA076F4003E75E8 /* SwitchingViewContainer.swift */; };
+		D840547D1FF9450A0064E338 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D840547C1FF945090064E338 /* FileUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		105E92E01FA076F4003E75E8 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		105E92E11FA076F4003E75E8 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		105E92E21FA076F4003E75E8 /* SwitchingViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchingViewContainer.swift; sourceTree = "<group>"; };
+		D840547C1FF945090064E338 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				105E92D61FA076F4003E75E8 /* LocationUtils.swift */,
 				105E92D71FA076F4003E75E8 /* MathUtils.swift */,
+				D840547C1FF945090064E338 /* FileUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				105E92E31FA076F5003E75E8 /* CommonEnum.swift in Sources */,
 				105E92ED1FA076F5003E75E8 /* AspectImageView.swift in Sources */,
 				105E92EB1FA076F5003E75E8 /* BaseViewController.swift in Sources */,
+				D840547D1FF9450A0064E338 /* FileUtils.swift in Sources */,
 				105E92F01FA076F5003E75E8 /* SwitchingViewContainer.swift in Sources */,
 				105E92E81FA076F5003E75E8 /* MathUtils.swift in Sources */,
 				105E92E61FA076F5003E75E8 /* CommonReactive.swift in Sources */,

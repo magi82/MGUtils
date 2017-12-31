@@ -25,14 +25,14 @@ extension UIStoryboard {
 // MARK: - UIAlertController
 
 extension UIAlertController {
-  static func make(title: String? = nil,
-                   message: String? = nil,
-                   style: UIAlertControllerStyle,
-                   ok: String? = nil,
-                   okClosure: ((UIAlertAction) -> Void)? = nil,
-                   cancel: String? = nil,
-                   cancelClosure: ((UIAlertAction) -> Void)? = nil,
-                   sheet: UIAlertAction...) -> UIAlertController {
+  public static func make(title: String? = nil,
+                          message: String? = nil,
+                          style: UIAlertControllerStyle,
+                          ok: String? = nil,
+                          okClosure: ((UIAlertAction) -> Void)? = nil,
+                          cancel: String? = nil,
+                          cancelClosure: ((UIAlertAction) -> Void)? = nil,
+                          sheet: UIAlertAction...) -> UIAlertController {
     
     let alert = UIAlertController(title: title, message: message, preferredStyle: style)
     
@@ -51,7 +51,7 @@ extension UIAlertController {
     return alert
   }
   
-  func alertShow(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+  public func alertShow(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
     viewController.present(self, animated: animated, completion: completion)
   }
 }
