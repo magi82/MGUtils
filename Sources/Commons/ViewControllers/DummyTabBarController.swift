@@ -1,5 +1,5 @@
 //
-//  BaseTabBarController.swift
+//  DummyTabBarController.swift
 //  Common
 //
 //  Created by Byung Kook Hwang on 07/10/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseTabBarController: UITabBarController {
+open class DummyTabBarController: UITabBarController {
   
   open override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,7 +19,7 @@ open class BaseTabBarController: UITabBarController {
   
   open func configure() {
     // 탭바 투명도와 컬러
-//    tabBar.isTranslucent = false
-//    tabBar.barTintColor = UIColor(r: 239, g: 238, b: 238)
+    tabBar.isTranslucent = false
+    tabBar.barTintColor = UIColor(r: 239, g: 238, b: 238)
   }
 }

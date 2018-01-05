@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  DummyViewController.swift
 //  Common
 //
 //  Created by Byung Kook Hwang on 2017. 8. 22..
@@ -10,7 +10,7 @@ import UIKit
 
 import RxSwift
 
-open class BaseViewController: UIViewController {
+open class DummyViewController: UIViewController {
   
   // MARK: Properties
   
@@ -121,7 +121,7 @@ open class BaseViewController: UIViewController {
 
 // MARK: - Orientation
 
-extension BaseViewController {
+extension DummyViewController {
   open override var shouldAutorotate: Bool {
     return false
   }
@@ -133,6 +133,6 @@ extension BaseViewController {
 
 // MARK: - UIGestureRecognizerDelegate
 
-extension BaseViewController: UIGestureRecognizerDelegate {
+extension DummyViewController: UIGestureRecognizerDelegate {
   
 }
