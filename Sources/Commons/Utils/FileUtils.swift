@@ -12,7 +12,7 @@ public class FileUtils {
   
   // 문서 폴더에 파일이 있는지 체크 하는 함수
   public static func existFileAtDocumentPath(fileName: String,
-                                      fullPath: inout String) -> Bool {
+                                             fullPath: inout String) -> Bool {
     
     if let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                               .userDomainMask, true).first {
@@ -25,7 +25,7 @@ public class FileUtils {
   
   // 번들 폴더에 파일이 있는지 체크 하는 함수
   public static func existFileAtBundlePath(fileName: String,
-                                    fullPath: inout String) -> Bool {
+                                           fullPath: inout String) -> Bool {
     
     fullPath = (Bundle.main.resourcePath! as NSString).appendingPathComponent(fileName)
     return FileManager.default.fileExists(atPath: fullPath)

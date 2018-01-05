@@ -64,7 +64,9 @@ open class BaseViewController: UIViewController {
     
     self.view.setNeedsUpdateConstraints()
     
-    self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    if let _ = backBarButtonImage {
+      self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
   }
   
   open override func viewDidAppear(_ animated: Bool) {

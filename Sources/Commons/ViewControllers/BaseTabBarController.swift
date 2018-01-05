@@ -19,7 +19,7 @@ open class BaseTabBarController: UITabBarController {
   
   open func configure() {
     // 탭바 투명도와 컬러
-    tabBar.isTranslucent = false
-    tabBar.barTintColor = UIColor(r: 239, g: 238, b: 238)
+//    tabBar.isTranslucent = false
+//    tabBar.barTintColor = UIColor(r: 239, g: 238, b: 238)
   }
 }

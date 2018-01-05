@@ -110,6 +110,14 @@ extension String {
     
     return attrValue
   }
+  
+  public func cancelLineOfKeyword(keyword: String) -> NSMutableAttributedString {
+    let attrValue: NSMutableAttributedString = NSMutableAttributedString(string: self)
+    attrValue.addAttributes([.baselineOffset: 0, .strikethroughStyle: 2],
+                            range: NSString(string: self).range(of: keyword))
+    
+    return attrValue
+  }
 }
 
 // MARK: - Dictionary
@@ -379,5 +387,65 @@ extension String {
     style.lineSpacing = spacing
     let attributes = [NSAttributedStringKey.paragraphStyle: style]
     return NSAttributedString(string: self, attributes: attributes)
+  }
+}
+
+// MARK: - 최상위 뷰컨
+
+extension UIApplication {
+  public class func topViewController(viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    
+    if let tabbarVC = viewController as? UITabBarController {
+      if let vc = tabbarVC.selectedViewController {
+        return topViewController(viewController: vc)
+      }
+    }
+    
+    if let naviVC = viewController as? UINavigationController {
+      if let vc = naviVC.visibleViewController {
+        return topViewController(viewController: vc)
+      }
+    }
+    
+    if let presentedVC = viewController?.presentedViewController {
+      return topViewController(viewController: presentedVC)
+    }
+    
+    return viewController
+  }
+}
+
+// MARK: - Dashed Line
+
+extension UIView {
+  public func dashedLine(color: UIColor = .black,
+                         width: CGFloat = 2,
+                         dashPattern: [CGFloat] = [10, 5],
+                         phase: CGFloat = 5,
+                         lineCap: String = kCALineCapRound) {
+    
+    if let subLayers = self.layer.sublayers {
+      for (index, layer) in subLayers.enumerated() {
+        if layer.name == "DashedLine" {
+          self.layer.sublayers?.remove(at: index)
+          break
+        }
+      }
+    }
+    
+    let path = UIBezierPath()
+    path.move(to: CGPoint(x: self.bounds.minX, y: self.bounds.midY))
+    path.addLine(to: CGPoint(x: self.bounds.maxX, y: self.bounds.midY))
+    
+    let layer = CAShapeLayer()
+    layer.name = "DashedLine"
+    layer.path = path.cgPath
+    layer.strokeColor = color.cgColor
+    layer.lineWidth = width
+    layer.lineDashPattern = dashPattern.map { NSNumber(value: Float($0)) }
+    layer.lineDashPhase = phase
+    layer.lineJoin = lineCap
+    
+    self.layer.addSublayer(layer)
   }
 }
