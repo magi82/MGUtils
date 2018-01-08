@@ -8,7 +8,7 @@
 
 import UIKit
 
-import SwiftCop
+//import SwiftCop
 
 // MARK: - UIStoryboard
 
@@ -462,6 +462,7 @@ extension UIApplication {
 
 //MAKR: Validation
 
+/*
 extension String {
   
   func isEmail() -> Bool {
@@ -502,3 +503,4 @@ extension String {
     return trial1(self)
   }
 }
+*/
