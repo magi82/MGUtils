@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SwiftCop
+
 // MARK: - UIStoryboard
 
 extension UIStoryboard {
@@ -447,5 +449,56 @@ extension UIView {
     layer.lineJoin = lineCap
     
     self.layer.addSublayer(layer)
+  }
+}
+
+//MARK: StatusBarColor
+
+extension UIApplication {
+  var statusBarView: UIView? {
+    return value(forKey: "statusBar") as? UIView
+  }
+}
+
+//MAKR: Validation
+
+extension String {
+  
+  func isEmail() -> Bool {
+    let trial1 = Trial.email.trial()
+    return trial1(self)
+  }
+  
+  func isPassword() -> Bool {
+    let trail1 = Trial.length(.minimum, 6).trial()
+    let trail2 = Trial.length(.maximum, 12).trial()
+    
+    if !trail1(self) || !trail2(self) {
+      return false
+    }
+    
+    let trail3 = Trial.format("^[a-zA-Z]{6,12}$").trial()
+    let trail4 = Trial.format("^[0-9]{6,12}$").trial()
+    
+    if trail3(self) || trail4(self) {
+      return false
+    }
+    return true
+  }
+  
+  func isPhone() -> Bool {
+    let trial1 = Trial.format("^01[0-9]{1}-[0-9]{3,4}-[0-9]{4}$").trial()
+    let trial2 = Trial.format("^01[0-9]{1}[0-9]{3,4}[0-9]{4}$").trial()
+    
+    if trial1(self) || trial2(self) {
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  func isCertificationNumber() -> Bool {
+    let trial1 = Trial.format("^[0-9]{4}$").trial()
+    return trial1(self)
   }
 }
