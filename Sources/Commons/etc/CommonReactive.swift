@@ -51,7 +51,7 @@ extension Reactive where Base: UIViewController {
     }
   }
   
-  public func pushVC(animated: Bool = true) -> Binder<ProvideObject> {
+  public func pushVC(animated: Bool = true) -> Binder<ProvideObjectProtocol> {
     return Binder(self.base) { (view, object) -> () in
       view.navigationController?.pushViewController(object.viewController, animated: animated)
     }
@@ -63,7 +63,7 @@ extension Reactive where Base: UIViewController {
     }
   }
   
-  public func present(animated: Bool = true, completion: (() -> Void)? = nil) -> Binder<ProvideObject> {
+  public func present(animated: Bool = true, completion: (() -> Void)? = nil) -> Binder<ProvideObjectProtocol> {
     return Binder(self.base) { (view, object) -> () in
       view.present(object.viewController, animated: animated, completion: completion)
     }
