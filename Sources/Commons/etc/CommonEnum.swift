@@ -42,3 +42,7 @@ extension FontName {
     }
   }
 }
+
+public protocol ProvideObjectProtocol {
+  var viewController: UIViewController { get }
+}
